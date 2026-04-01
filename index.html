@@ -177,16 +177,16 @@
         }
 
         async function loadLatest(){ 
-            const m=await loadJson('matches/latest.json?v='+Date.now());
+            const m=await loadJson('./matches/latest.json?v='+Date.now());
             if(m)renderMatch(m); 
         }
         async function loadMeta(){ 
-            const m=await loadJson('matches/match_meta_qwen_vs_llama.json?'+Date.now());
+            const m=await loadJson('./matches/match_meta_qwen_vs_llama.json?'+Date.now());
             if(m)renderMatch(m); 
         }
         async function loadSmall(){ 
-            const m=await loadJson('matches/match_small.json?'+Date.now());
-            if(m)renderMatch(m); 
+            const m=await loadJson('./matches/match_small.json?'+Date.now());
+            if(m)renderMatch(m);
         }
 
         // Auto-refresh every 5s
