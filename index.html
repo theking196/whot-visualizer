@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 Whot AI Arena</title>
+    <style>
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{font-family:system-ui;-apple-system,"Segoe UI",sans-serif;background:linear-gradient(135deg,#0f172a 0%,#1e293b 50%,#0f172a 100%);color:#e2e8f0;min-height:100vh}
+        .app{max-width:900px;margin:0 auto;padding:16px}
+        .header{text-align:center;padding:20px;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:12px}
+        .header h1{font-size:28px;background:linear-gradient(135deg,#f59e0b,#f97316,#ef4444);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+        .header p{font-size:14px;color:#94a8f8;margin-top:4px}
+        .sb{display:flex;justify-content:space-around;margin-bottom:16px;padding:16px;background:rgba(30,41,59,0.8);border-radius:12px;border:1px solid rgba(100,116,139,0.3)}
+        .p{text-align:center;min-width:120px}
+        .p .name{font-size:18px;font-weight:600;margin-bottom:2px}
+        .p .cards{font-size:22px;font-weight:bold;color:#60a5fa}
+        .p .tag{font-size:11px;color:#64748b;margin-top:4px}
+        .p .status{font-size:12px;margin-top:2px}
+        .vs{font-size:18px;color:#475569;align-self:center}
+        .ta{display:flex;justify-content:center;gap:24px;margin:16px 0;padding:16px;background:rgba(0,0,0,0.3);border-radius:12px}
+        .tc{width:90px;height:135px;background:#1e3a5f;border:2px solid #3b82f6;border-radius:12px;display:flex;flex-direction:column;justify-content:center;align-items:center;font-size:24px;color:#f59e0b;text-shadow:0 2px #333}
+        .tl{font-size:13px;color:#94a8f8;margin-bottom:8px}
+        .h{display:flex;flex-wrap:wrap;gap:6px;padding:12px;min-height:80px;justify-content:center;margin-bottom:16px;background:rgba(59,130,246,0.1);border-radius:10px}
+        .h2{background:rgba(139,92,246,0.1)}
+        .card{width:42px;height:63px;background:#2a3f5f;border:2px solid #4a6b8f;border-radius:8px;display:flex;justify-content:center;align-items:center;font-size:18px;transition:transform 0.2s,box-shadow 0.2s}
+        .card:hover{transform:scale(1.12);box-shadow:0 0 12px rgba(59,130,246,0.3)}
+        .c-w{background:linear-gradient(135deg,#7c3aed,#2563eb)!important;border-color:#a78bfa!important;box-shadow:0 0 15px rgba(124,58,237,0.3)}
+        .c-found{background:#3b82f6!important;border-color:#60a5fa!important;animation:pop 0.4s}
+        @keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.2)}100%{transform:scale(1)}}
+        .log{background:rgba(15,23,42,0.9);border-radius:12px;padding:12px;max-height:400px;overflow-y:auto;font-size:13px;margin-top:16px;font-family:monospace}
+        .le{padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;align-items:center}
+        .lp{color:#34d399}.ld{color:#f59e0b}.li{color:#f87171}.lw{color:#fbbf24;font-weight:bold}
+        .tn{color:#64748b;margin-right:8px;font-family:monospace}
+        .pn{color:#60a5fa;font-weight:600;margin-right:4px}
+        .eb{background:rgba(245,158,11,0.25);color:#fbbf24;padding:2px 6px;border-radius:8px;font-size:10px;margin-left:6px}
+        .stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px}
+        .st{background:rgba(30,41,59,0.6);border:1px solid rgba(100,116,139,0.3);border-radius:10px;padding:12px;text-align:center}
+        .sv{font-size:24px;font-weight:bold;color:#f59e0b}
+        .sl{font-size:12px;color:#64748b;margin-top:2px}
+        .ct{text-align:center;margin-top:16px}
+        .btn{background:linear-gradient(135deg,#3b82f6,#2563eb);color:#fff;border:none;padding:12px 26px;border-radius:8px;font-size:14px;cursor:pointer;margin:0 6px 6px 0;transition:transform 0.2s}
+        .btn:hover{transform:scale(1.03)}
+    </style>
+</head>
+<body>
+    <div class="app">
+        <div class="header">
+            <h1>🎮 Whot AI Arena</h1>
+            <p id="matchTitle">AI vs AI — Live Match</p>
+        </div>
+
+        <div class="sb">
+            <div class="p">
+                <div class="name" id="p1n">P1</div>
+                <div class="cards" id="p1c">-</div>
+                <div class="status" id="p1s"></div>
+                <div class="tag" id="p1t"></div>
+            </div>
+            <div class="vs">VS</div>
+            <div class="p">
+                <div class="name" id="p2n">P2</div>
+                <div class="cards" id="p2c">-</div>
+                <div class="status" id="p2s"></div>
+                <div class="tag" id="p2t"></div>
+            </div>
+        </div>
+
+        <div class="ta">
+            <div class="tl">Table Card</div>
+            <div class="tc"><span id="tCard">?</span></div>
+        </div>
+
+        <div class="h" id="hand1"></div>
+        <div class="h h2" id="hand2"></div>
+
+        <div class="stats">
+            <div class="st"><div class="sv" id="sT">0</div><div class="sl">Turns</div></div>
+            <div class="st"><div class="sv" id="sI">0</div><div class="sl">Invalid</div></div>
+            <div class="st"><div class="sv" id="sD">0</div><div class="sl">Deck</div></div>
+        </div>
+
+        <div class="log" id="log"></div>
+
+        <div class="ct">
+            <button class="btn" onclick="loadLatest()">Load Latest</button>
+            <button class="btn" onclick="loadMeta()">Meta Qwen vs Llama</button>
+            <button class="btn" onclick="loadSmall()">L8B vs L8B</button>
+        </div>
+    </div>
+
+    <script>
+        const SHAPE={star:'★',cross:'✚',triangle:'▲',circle:'●',square:'■'};
+        const COLOR={star:'#fbbf24',cross:'#3b82f6',triangle:'#ef444f',circle:'#22d3ee',square:'#a78bfa',whot:'#f472b6'};
+
+        function mkCard(c){
+            if(!c)return'<div class="card c-d">?</div>';
+            c=String(c);
+            if(c==='WHOT')return'<div class="card c-w">🃏</div>';
+            const [s,v]=c.split('-');
+            const em=SHAPE[s]||'?';
+            const col=COLOR[s]||'#e2e8f0';
+            return'<div class="card" style="color:'+col+'">'+em+'</div>';
+        }
+
+        function renderMatch(m){
+            const title='Match: '+((m.players||['P1','P2']).join(' vs '))+(m.models?' — '+m.models.join(' vs '):'');
+            document.getElementById('matchTitle').textContent=title;
+
+            const ps=m.players||['P1','P2'];
+            document.getElementById('p1n').textContent=ps[0];
+            document.getElementById('p2n').textContent=ps[1];
+            document.getElementById('p1t').textContent=(m.models||[])[0]||'';
+            document.getElementById('p2t').textContent=(m.models||[])[1]||'';
+
+            document.getElementById('p1c').textContent=m.finalHands?m.finalHands[ps[0]]:(m.hands?m.hands[0].length:'-');
+            document.getElementById('p2c').textContent=m.finalHands?m.finalHands[ps[1]]:(m.hands?m.hands[1].length:'-');
+
+            if(m.winner){
+                if(m.winner===ps[0])document.getElementById('p1s').textContent='🏆 WINS!';
+                else if(m.winner===ps[1])document.getElementById('p2s').textContent='🏆 WINS!';
+            }
+
+            if(m.table)document.getElementById('tCard').textContent=m.table;
+
+            let st=m.stats||{};
+            document.getElementById('sT').textContent=st.turns||st.turn_count||st.turns_played||'-';
+            document.getElementById('sI').textContent=st.invalid||st.invalid_moves||'-';
+            document.getElementById('sD').textContent=st.deck||st.deck_remaining||st.deckLeft||'-';
+
+            if(m.hands&&m.hands.length===2){
+                const h1=m.hands[0].map(c=>mkCard(c)).join('');
+                const h2=m.hands[1].map(c=>mkCard(c)).join('');
+                document.getElementById('hand1').innerHTML=h1;
+                document.getElementById('hand2').innerHTML=h2;
+            }
+
+            const log=document.getElementById('log');
+            log.innerHTML='';
+            if(m.winner){
+                log.innerHTML+='<div class="le lw">🏆 '+m.winner+' wins!</div>';
+            }
+
+            const moves=m.moves||[];
+            moves.slice(-80).forEach(mv=>{
+                let t=mv.turn!==undefined?'T'+(mv.turn+1):'-',line='',cls='lp';
+                if(mv.action==='draw'||mv.card&&!mv.cardPlayed&&!mv.ok){
+                    cls='ld';
+                    line='<span class="tn">'+t+'</span><span class="ld">Draws '+(mv.card||'none')+'</span>';
+                } else if(mv.ok||mv.cardPlayed){
+                    cls='lp';
+                    line='<span class="tn">'+t+'</span><span class="lp">Plays '+(mv.cardPlayed||mv.card||'?')+'</span>';
+                    if(mv.effect)line+='<span class="eb">'+mv.effect+'</span>';
+                } else {
+                    cls='li';
+                    line='<span class="tn">'+t+'</span><span class="li">INVALID: '+(mv.reason||mv.attempted)+'</span>';
+                }
+                log.innerHTML+='<div class="le '+cls+'">'+line+'</div>';
+            });
+            log.scrollTop=log.scrollHeight;
+        }
+
+        async function load(url){
+            try{
+                const r=await fetch(url);
+                if(!r.ok)throw new Error('HTTP '+r.status);
+                const m=await r.json();
+                document.getElementById('p1s').textContent='';
+                document.getElementById('p2s').textContent='';
+                renderMatch(m);
+            }catch(e){
+                console.error('Load failed:',e);
+            }
+        }
+
+        function loadLatest(){ load('matches/latest.json?v='+Date.now()); }
+        function loadMeta(){ load('matches/match_meta_qwen_vs_llama.json?bust='+Date.now()); }
+        function loadSmall(){ load('matches/match_small.json?time='+Date.now()); }
+
+        window.onload=()=>loadLatest();
+    </script>
+</body>
+</html>
