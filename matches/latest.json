@@ -1,0 +1,32 @@
+{
+  "players": ["Qwen-32B", "Llama4-Scout"],
+  "models": ["qwen/qwen3-32b", "meta-llama/llama-4-scout-17b-16e-instruct"],
+  "winner": "Llama4-Scout",
+  "stats": {"turns": 32, "invalid": 0, "deck_left": 52},
+  "finalHands": {"Qwen-32B": 2, "Llama4-Scout": 0},
+  "hands": [
+    ["cross-1", "square-11"],
+    []
+  ],
+  "table": "cross-9",
+  "moves": [
+    {"turn": 0, "player": 0, "cardPlayed": "circle-2", "ok": true},
+    {"turn": 1, "player": 1, "cardPlayed": "circle-9", "ok": true},
+    {"turn": 2, "player": 0, "cardPlayed": "star-9", "ok": true},
+    {"turn": 3, "player": 1, "cardPlayed": "WHOT", "ok": true},
+    {"turn": 4, "player": 0, "action": "draw", "card": "star-1"},
+    {"turn": 5, "player": 1, "cardPlayed": "square-13", "ok": true},
+    {"turn": 6, "player": 0, "cardPlayed": "star-13", "ok": true},
+    {"turn": 7, "player": 1, "cardPlayed": "square-7", "ok": true},
+    {"turn": 8, "player": 0, "cardPlayed": "triangle-7", "ok": true},
+    {"turn": 9, "player": 1, "cardPlayed": "WHOT", "ok": true, "effect": "wildcard"},
+    {"turn": 10, "player": 0, "cardPlayed": "circle-8", "ok": true},
+    {"turn": 14, "player": 0, "cardPlayed": "circle-3", "ok": true},
+    {"turn": 16, "player": 1, "cardPlayed": "WHOT", "ok": true, "effect": "wildcard"},
+    {"turn": 17, "player": 0, "cardPlayed": "star-1", "ok": true},
+    {"turn": 21, "player": 0, "cardPlayed": "circle-1", "ok": true},
+    {"turn": 25, "player": 0, "cardPlayed": "square-1", "ok": true},
+    {"turn": 28, "player": 1, "cardPlayed": "cross-14", "ok": true},
+    {"turn": 30, "player": 1, "cardPlayed": "cross-9", "ok": true}
+  ]
+}
