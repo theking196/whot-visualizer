@@ -16,10 +16,10 @@
         .p .name{font-size:18px;font-weight:600;margin-bottom:2px}
         .p .cards{font-size:22px;font-weight:bold;color:#60a5fa}
         .p .tag{font-size:11px;color:#64748b;margin-top:4px}
-        .p .status{font-size:12px;margin-top:2px}
+        .p .status{font-size:12px;margin-top:2px;color:#fbbf24;font-weight:600}
         .vs{font-size:18px;color:#475569;align-self:center}
         .ta{display:flex;justify-content:center;gap:24px;margin:16px 0;padding:16px;background:rgba(0,0,0,0.3);border-radius:12px}
-        .tc{width:90px;height:135px;background:#1e3a5f;border:2px solid #3b82f6;border-radius:12px;display:flex;flex-direction:column;justify-content:center;align-items:center;font-size:24px;color:#f59e0b;text-shadow:0 2px #333}
+        table{width:80px;height:120px;background:#1e3a5f;border:2px solid #3b82f6;border-radius:12px;display:flex;justify-content:center;align-items:center;font-size:24px;color:#f59e0b;text-shadow:0 2px #333}
         .tl{font-size:13px;color:#94a8f8;margin-bottom:8px}
         .h{display:flex;flex-wrap:wrap;gap:6px;padding:12px;min-height:80px;justify-content:center;margin-bottom:16px;background:rgba(59,130,246,0.1);border-radius:10px}
         .h2{background:rgba(139,92,246,0.1)}
@@ -41,6 +41,7 @@
         .ct{text-align:center;margin-top:16px}
         .btn{background:linear-gradient(135deg,#3b82f6,#2563eb);color:#fff;border:none;padding:12px 26px;border-radius:8px;font-size:14px;cursor:pointer;margin:0 6px 6px 0;transition:transform 0.2s}
         .btn:hover{transform:scale(1.03)}
+        .info{color:#64748b;font-size:12px;text-align:center;margin-top:8px}
     </style>
 </head>
 <body>
@@ -85,14 +86,15 @@
         <div class="ct">
             <button class="btn" onclick="loadLatest()">Load Latest</button>
             <button class="btn" onclick="loadMeta()">Meta Qwen vs Llama</button>
-            <button class="btn" onclick="loadSmall()">L8B vs L8B</button>
+            <button class="btn" onclick="loadSmall()">Small Models</button>
+            <p class="info">Auto-refreshes every 5s</p>
         </div>
     </div>
 
     <script>
         const SHAPE={star:'★',cross:'✚',triangle:'▲',circle:'●',square:'■'};
         const COLOR={star:'#fbbf24',cross:'#3b82f6',triangle:'#ef444f',circle:'#22d3ee',square:'#a78bfa',whot:'#f472b6'};
-
+        
         function mkCard(c){
             if(!c)return'<div class="card c-d">?</div>';
             c=String(c);
@@ -117,11 +119,16 @@
             document.getElementById('p2c').textContent=m.finalHands?m.finalHands[ps[1]]:(m.hands?m.hands[1].length:'-');
 
             if(m.winner){
-                if(m.winner===ps[0])document.getElementById('p1s').textContent='🏆 WINS!';
-                else if(m.winner===ps[1])document.getElementById('p2s').textContent='🏆 WINS!';
+                if(m.winner===ps[0]){
+                    document.getElementById('p1s').textContent='🏆 WINS!';
+                    document.getElementById('p1s').style.color='#fbbf24';
+                } else if(m.winner===ps[1]){
+                    document.getElementById('p2s').textContent='🏆 WINS!';
+                    document.getElementById('p2s').style.color='#fbbf24';
+                }
             }
 
-            if(m.table)document.getElementById('tCard').textContent=m.table;
+            if(m.table)document.getElementById('tCard').innerHTML=mkCard(m.table);
 
             let st=m.stats||{};
             document.getElementById('sT').textContent=st.turns||st.turn_count||st.turns_played||'-';
@@ -129,10 +136,8 @@
             document.getElementById('sD').textContent=st.deck||st.deck_remaining||st.deckLeft||'-';
 
             if(m.hands&&m.hands.length===2){
-                const h1=m.hands[0].map(c=>mkCard(c)).join('');
-                const h2=m.hands[1].map(c=>mkCard(c)).join('');
-                document.getElementById('hand1').innerHTML=h1;
-                document.getElementById('hand2').innerHTML=h2;
+                document.getElementById('hand1').innerHTML=m.hands[0].map(mkCard).join('');
+                document.getElementById('hand2').innerHTML=m.hands[1].map(mkCard).join('');
             }
 
             const log=document.getElementById('log');
@@ -144,40 +149,49 @@
             const moves=m.moves||[];
             moves.slice(-80).forEach(mv=>{
                 let t=mv.turn!==undefined?'T'+(mv.turn+1):'-',line='',cls='lp';
-                if(mv.action==='draw'||mv.card&&!mv.cardPlayed&&!mv.ok){
+                if(mv.action==='draw'||(!mv.ok && mv.card)){
                     cls='ld';
-                    line='<span class="tn">'+t+'</span><span class="ld">Draws '+(mv.card||'none')+'</span>';
+                    line='<span class="tn">'+t+'</span><span class="ld">Draws '+(mv.card||'?')+'</span>';
                 } else if(mv.ok||mv.cardPlayed){
                     cls='lp';
                     line='<span class="tn">'+t+'</span><span class="lp">Plays '+(mv.cardPlayed||mv.card||'?')+'</span>';
                     if(mv.effect)line+='<span class="eb">'+mv.effect+'</span>';
                 } else {
                     cls='li';
-                    line='<span class="tn">'+t+'</span><span class="li">INVALID: '+(mv.reason||mv.attempted)+'</span>';
+                    line='<span class="tn">'+t+'</span><span class="li">INVALID</span>';
                 }
                 log.innerHTML+='<div class="le '+cls+'">'+line+'</div>';
             });
             log.scrollTop=log.scrollHeight;
         }
 
-        async function load(url){
+        async function loadJson(url){
             try{
                 const r=await fetch(url);
-                if(!r.ok)throw new Error('HTTP '+r.status);
-                const m=await r.json();
-                document.getElementById('p1s').textContent='';
-                document.getElementById('p2s').textContent='';
-                renderMatch(m);
+                if(!r.ok)throw new Error(r.status+'');
+                return await r.json();
             }catch(e){
-                console.error('Load failed:',e);
+                document.getElementById('log').innerHTML='<div class="le li">Failed to load match: '+e.message+'</div>';
+                return null;
             }
         }
 
-        function loadLatest(){ load('matches/latest.json?v='+Date.now()); }
-        function loadMeta(){ load('matches/match_meta_qwen_vs_llama.json?bust='+Date.now()); }
-        function loadSmall(){ load('matches/match_small.json?time='+Date.now()); }
+        async function loadLatest(){ 
+            const m=await loadJson('matches/latest.json?v='+Date.now());
+            if(m)renderMatch(m); 
+        }
+        async function loadMeta(){ 
+            const m=await loadJson('matches/match_meta_qwen_vs_llama.json?'+Date.now());
+            if(m)renderMatch(m); 
+        }
+        async function loadSmall(){ 
+            const m=await loadJson('matches/match_small.json?'+Date.now());
+            if(m)renderMatch(m); 
+        }
 
-        window.onload=()=>loadLatest();
+        // Auto-refresh every 5s
+        setInterval(loadLatest,5000);
+        window.onload=loadLatest;
     </script>
 </body>
 </html>
