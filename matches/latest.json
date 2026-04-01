@@ -1,5 +1,5 @@
 {
-  "match_id": "mngni1ha",
+  "match_id": "mngnsbhz",
   "players": [
     "P1-L8B",
     "P2-Q32B"
@@ -8,497 +8,180 @@
     "llama-3.1-8b-instant",
     "qwen/qwen3-32b"
   ],
-  "winner": "P2-Q32B",
+  "winner": "P1-L8B",
   "stats": {
-    "turns": 50,
-    "invalid_moves": 23,
-    "deck_remaining": 40,
-    "total_plays": 31,
-    "total_draws": 23
+    "turns": 17,
+    "invalid_moves": 0,
+    "deck_remaining": 58,
+    "total_draws": 5
   },
   "hands": [
+    [],
     [
-      "square-7",
-      "triangle-2"
-    ],
-    []
+      "cross-13",
+      "star-5",
+      "square-6"
+    ]
   ],
-  "tableCard": "triangle-4",
+  "table": "star-3",
   "finalHands": {
-    "P1-L8B": 2,
-    "P2-Q32B": 0
+    "P1-L8B": 0,
+    "P2-Q32B": 3
   },
   "moves": [
     {
       "turn": 0,
       "player": 0,
       "playerName": "P1-L8B",
-      "cardPlayed": "cross-1",
-      "card": "cross-1",
-      "reasoning": "Fallback: cross-1",
-      "valid": true
+      "reasoning": "AI chose cross-9",
+      "valid": true,
+      "cardPlayed": "cross-9",
+      "card": "cross-9"
     },
     {
       "turn": 1,
       "player": 1,
       "playerName": "P2-Q32B",
-      "card": "triangle-3",
-      "action": "draw",
-      "reasoning": "No valid cards → draw"
+      "reasoning": "Fallback: cross-14",
+      "valid": true,
+      "cardPlayed": "cross-14",
+      "card": "cross-14"
     },
     {
       "turn": 2,
       "player": 0,
       "playerName": "P1-L8B",
-      "cardPlayed": "cross-14",
-      "card": "cross-14",
-      "reasoning": "Fallback: cross-14",
-      "valid": true
+      "reasoning": "AI chose star-14",
+      "valid": true,
+      "cardPlayed": "star-14",
+      "card": "star-14"
     },
     {
       "turn": 3,
       "player": 1,
       "playerName": "P2-Q32B",
-      "cardPlayed": "star-14",
-      "card": "star-14",
-      "reasoning": "Fallback: star-14",
-      "valid": true
+      "reasoning": "Fallback: star-13",
+      "valid": true,
+      "cardPlayed": "star-13",
+      "card": "star-13"
     },
     {
       "turn": 4,
       "player": 0,
       "playerName": "P1-L8B",
-      "card": "circle-2",
-      "action": "draw",
-      "reasoning": "No valid cards → draw"
+      "reasoning": "AI chose triangle-13",
+      "valid": true,
+      "cardPlayed": "triangle-13",
+      "card": "triangle-13"
     },
     {
       "turn": 5,
       "player": 1,
       "playerName": "P2-Q32B",
-      "cardPlayed": "star-2",
-      "card": "star-2",
-      "reasoning": "Fallback: star-2",
+      "reasoning": "Fallback: triangle-14",
       "valid": true,
-      "effect": "hold"
+      "cardPlayed": "triangle-14",
+      "card": "triangle-14"
     },
     {
       "turn": 6,
-      "player": 1,
-      "playerName": "P2-Q32B",
-      "cardPlayed": "star-10",
-      "card": "star-10",
-      "reasoning": "Fallback: star-10",
-      "valid": true
+      "player": 0,
+      "playerName": "P1-L8B",
+      "reasoning": "AI chose triangle-1",
+      "valid": true,
+      "cardPlayed": "triangle-1",
+      "card": "triangle-1"
     },
     {
       "turn": 7,
-      "player": 0,
-      "playerName": "P1-L8B",
-      "card": "square-6",
+      "player": 1,
+      "playerName": "P2-Q32B",
       "action": "draw",
-      "reasoning": "No valid cards → draw"
+      "card": "circle-3",
+      "reasoning": "Drew circle-3",
+      "valid": true
     },
     {
       "turn": 8,
-      "player": 1,
-      "playerName": "P2-Q32B",
-      "card": "cross-2",
+      "player": 0,
+      "playerName": "P1-L8B",
       "action": "draw",
-      "reasoning": "No valid cards → draw"
+      "card": "triangle-11",
+      "reasoning": "Drew triangle-11",
+      "valid": true
     },
     {
       "turn": 9,
-      "player": 0,
-      "playerName": "P1-L8B",
-      "card": "triangle-14",
+      "player": 1,
+      "playerName": "P2-Q32B",
       "action": "draw",
-      "reasoning": "No valid cards → draw"
+      "card": "square-6",
+      "reasoning": "Drew square-6",
+      "valid": true
     },
     {
       "turn": 10,
-      "player": 1,
-      "playerName": "P2-Q32B",
-      "card": "triangle-12",
-      "action": "draw",
-      "reasoning": "No valid cards → draw"
+      "player": 0,
+      "playerName": "P1-L8B",
+      "reasoning": "AI chose triangle-11",
+      "valid": true,
+      "cardPlayed": "triangle-11",
+      "card": "triangle-11"
     },
     {
       "turn": 11,
-      "player": 0,
-      "playerName": "P1-L8B",
-      "card": "triangle-7",
+      "player": 1,
+      "playerName": "P2-Q32B",
       "action": "draw",
-      "reasoning": "No valid cards → draw"
+      "card": "circle-11",
+      "reasoning": "Drew circle-11",
+      "valid": true
     },
     {
       "turn": 12,
-      "player": 1,
-      "playerName": "P2-Q32B",
-      "card": "circle-12",
+      "player": 0,
+      "playerName": "P1-L8B",
       "action": "draw",
-      "reasoning": "No valid cards → draw"
+      "card": "star-3",
+      "reasoning": "Drew star-3",
+      "valid": true
     },
     {
       "turn": 13,
-      "player": 0,
-      "playerName": "P1-L8B",
-      "card": "star-9",
-      "action": "draw",
-      "reasoning": "No valid cards → draw"
+      "player": 1,
+      "playerName": "P2-Q32B",
+      "reasoning": "Fallback: circle-11",
+      "valid": true,
+      "cardPlayed": "circle-11",
+      "card": "circle-11"
     },
     {
       "turn": 14,
-      "player": 1,
-      "playerName": "P2-Q32B",
-      "card": "square-1",
-      "action": "draw",
-      "reasoning": "No valid cards → draw"
+      "player": 0,
+      "playerName": "P1-L8B",
+      "reasoning": "AI chose circle-14",
+      "valid": true,
+      "cardPlayed": "circle-14",
+      "card": "circle-14"
     },
     {
       "turn": 15,
-      "player": 0,
-      "playerName": "P1-L8B",
-      "cardPlayed": "star-9",
-      "card": "star-9",
-      "reasoning": "AI chose star-9",
-      "valid": true
+      "player": 1,
+      "playerName": "P2-Q32B",
+      "reasoning": "Fallback: circle-3",
+      "valid": true,
+      "cardPlayed": "circle-3",
+      "card": "circle-3"
     },
     {
       "turn": 16,
-      "player": 1,
-      "playerName": "P2-Q32B",
-      "card": "cross-5",
-      "action": "draw",
-      "reasoning": "No valid cards → draw"
-    },
-    {
-      "turn": 17,
       "player": 0,
       "playerName": "P1-L8B",
-      "card": "square-11",
-      "action": "draw",
-      "reasoning": "No valid cards → draw"
-    },
-    {
-      "turn": 18,
-      "player": 1,
-      "playerName": "P2-Q32B",
-      "card": "star-12",
-      "action": "draw",
-      "reasoning": "No valid cards → draw"
-    },
-    {
-      "turn": 19,
-      "player": 0,
-      "playerName": "P1-L8B",
-      "card": "star-1",
-      "action": "draw",
-      "reasoning": "No valid cards → draw"
-    },
-    {
-      "turn": 20,
-      "player": 1,
-      "playerName": "P2-Q32B",
-      "cardPlayed": "star-12",
-      "card": "star-12",
-      "reasoning": "Fallback: star-12",
-      "valid": true
-    },
-    {
-      "turn": 21,
-      "player": 0,
-      "playerName": "P1-L8B",
-      "cardPlayed": "star-1",
-      "card": "star-1",
-      "reasoning": "Fallback: star-1",
-      "valid": true
-    },
-    {
-      "turn": 22,
-      "player": 1,
-      "playerName": "P2-Q32B",
-      "cardPlayed": "square-1",
-      "card": "square-1",
-      "reasoning": "Fallback: square-1",
-      "valid": true
-    },
-    {
-      "turn": 23,
-      "player": 0,
-      "playerName": "P1-L8B",
-      "cardPlayed": "square-4",
-      "card": "square-4",
-      "reasoning": "Fallback: square-4",
-      "valid": true
-    },
-    {
-      "turn": 24,
-      "player": 1,
-      "playerName": "P2-Q32B",
-      "cardPlayed": "circle-4",
-      "card": "circle-4",
-      "reasoning": "Fallback: circle-4",
-      "valid": true
-    },
-    {
-      "turn": 25,
-      "player": 0,
-      "playerName": "P1-L8B",
-      "cardPlayed": "circle-2",
-      "card": "circle-2",
-      "reasoning": "Fallback: circle-2",
+      "reasoning": "AI chose star-3",
       "valid": true,
-      "effect": "hold"
-    },
-    {
-      "turn": 26,
-      "player": 0,
-      "playerName": "P1-L8B",
-      "cardPlayed": "circle-7",
-      "card": "circle-7",
-      "reasoning": "Fallback: circle-7",
-      "valid": true
-    },
-    {
-      "turn": 27,
-      "player": 1,
-      "playerName": "P2-Q32B",
-      "cardPlayed": "circle-12",
-      "card": "circle-12",
-      "reasoning": "Fallback: circle-12",
-      "valid": true
-    },
-    {
-      "turn": 28,
-      "player": 0,
-      "playerName": "P1-L8B",
-      "cardPlayed": "circle-13",
-      "card": "circle-13",
-      "reasoning": "Fallback: circle-13",
-      "valid": true
-    },
-    {
-      "turn": 29,
-      "player": 1,
-      "playerName": "P2-Q32B",
-      "card": "circle-8",
-      "action": "draw",
-      "reasoning": "No valid cards → draw"
-    },
-    {
-      "turn": 30,
-      "player": 0,
-      "playerName": "P1-L8B",
-      "card": "triangle-5",
-      "action": "draw",
-      "reasoning": "No valid cards → draw"
-    },
-    {
-      "turn": 31,
-      "player": 1,
-      "playerName": "P2-Q32B",
-      "cardPlayed": "circle-8",
-      "card": "circle-8",
-      "reasoning": "Fallback: circle-8",
-      "valid": true,
-      "effect": "choice"
-    },
-    {
-      "turn": 32,
-      "player": 0,
-      "playerName": "P1-L8B",
-      "card": "square-8",
-      "action": "draw",
-      "reasoning": "No valid cards → draw"
-    },
-    {
-      "turn": 33,
-      "player": 1,
-      "playerName": "P2-Q32B",
-      "card": "circle-11",
-      "action": "draw",
-      "reasoning": "No valid cards → draw"
-    },
-    {
-      "turn": 34,
-      "player": 0,
-      "playerName": "P1-L8B",
-      "cardPlayed": "square-8",
-      "card": "square-8",
-      "reasoning": "AI chose square-8",
-      "valid": true,
-      "effect": "choice"
-    },
-    {
-      "turn": 35,
-      "player": 1,
-      "playerName": "P2-Q32B",
-      "card": "circle-6",
-      "action": "draw",
-      "reasoning": "No valid cards → draw"
-    },
-    {
-      "turn": 36,
-      "player": 0,
-      "playerName": "P1-L8B",
-      "cardPlayed": "square-6",
-      "card": "square-6",
-      "reasoning": "Fallback: square-6",
-      "valid": true
-    },
-    {
-      "turn": 37,
-      "player": 1,
-      "playerName": "P2-Q32B",
-      "cardPlayed": "circle-6",
-      "card": "circle-6",
-      "reasoning": "Fallback: circle-6",
-      "valid": true
-    },
-    {
-      "turn": 38,
-      "player": 0,
-      "playerName": "P1-L8B",
-      "card": "square-2",
-      "action": "draw",
-      "reasoning": "No valid cards → draw"
-    },
-    {
-      "turn": 39,
-      "player": 1,
-      "playerName": "P2-Q32B",
-      "cardPlayed": "circle-11",
-      "card": "circle-11",
-      "reasoning": "Fallback: circle-11",
-      "valid": true
-    },
-    {
-      "turn": 40,
-      "player": 0,
-      "playerName": "P1-L8B",
-      "cardPlayed": "square-11",
-      "card": "square-11",
-      "reasoning": "Fallback: square-11",
-      "valid": true
-    },
-    {
-      "turn": 41,
-      "player": 1,
-      "playerName": "P2-Q32B",
-      "card": "triangle-11",
-      "action": "draw",
-      "reasoning": "No valid cards → draw"
-    },
-    {
-      "turn": 42,
-      "player": 0,
-      "playerName": "P1-L8B",
-      "cardPlayed": "square-2",
-      "card": "square-2",
-      "reasoning": "Fallback: square-2",
-      "valid": true,
-      "effect": "hold"
-    },
-    {
-      "turn": 43,
-      "player": 0,
-      "playerName": "P1-L8B",
-      "card": "square-7",
-      "action": "draw",
-      "reasoning": "No valid cards → draw"
-    },
-    {
-      "turn": 44,
-      "player": 1,
-      "playerName": "P2-Q32B",
-      "cardPlayed": "cross-2",
-      "card": "cross-2",
-      "reasoning": "Fallback: cross-2",
-      "valid": true,
-      "effect": "hold"
-    },
-    {
-      "turn": 45,
-      "player": 1,
-      "playerName": "P2-Q32B",
-      "cardPlayed": "cross-5",
-      "card": "cross-5",
-      "reasoning": "Fallback: cross-5",
-      "valid": true
-    },
-    {
-      "turn": 46,
-      "player": 0,
-      "playerName": "P1-L8B",
-      "cardPlayed": "triangle-5",
-      "card": "triangle-5",
-      "reasoning": "Fallback: triangle-5",
-      "valid": true
-    },
-    {
-      "turn": 47,
-      "player": 1,
-      "playerName": "P2-Q32B",
-      "cardPlayed": "triangle-11",
-      "card": "triangle-11",
-      "reasoning": "Fallback: triangle-11",
-      "valid": true
-    },
-    {
-      "turn": 48,
-      "player": 0,
-      "playerName": "P1-L8B",
-      "cardPlayed": "triangle-14",
-      "card": "triangle-14",
-      "reasoning": "Fallback: triangle-14",
-      "valid": true
-    },
-    {
-      "turn": 49,
-      "player": 1,
-      "playerName": "P2-Q32B",
-      "cardPlayed": "triangle-12",
-      "card": "triangle-12",
-      "reasoning": "Fallback: triangle-12",
-      "valid": true
-    },
-    {
-      "turn": 50,
-      "player": 0,
-      "playerName": "P1-L8B",
-      "cardPlayed": "triangle-7",
-      "card": "triangle-7",
-      "reasoning": "Fallback: triangle-7",
-      "valid": true
-    },
-    {
-      "turn": 51,
-      "player": 1,
-      "playerName": "P2-Q32B",
-      "cardPlayed": "triangle-3",
-      "card": "triangle-3",
-      "reasoning": "Fallback: triangle-3",
-      "valid": true
-    },
-    {
-      "turn": 52,
-      "player": 0,
-      "playerName": "P1-L8B",
-      "card": "triangle-2",
-      "action": "draw",
-      "reasoning": "No valid cards → draw"
-    },
-    {
-      "turn": 53,
-      "player": 1,
-      "playerName": "P2-Q32B",
-      "cardPlayed": "triangle-4",
-      "card": "triangle-4",
-      "reasoning": "Fallback: triangle-4",
-      "valid": true
+      "cardPlayed": "star-3",
+      "card": "star-3"
     }
   ],
-  "createdAt": "2026-04-01T23:02:15.551Z",
-  "duration_turns": 53
+  "createdAt": "2026-04-01T23:10:15.095Z"
 }
